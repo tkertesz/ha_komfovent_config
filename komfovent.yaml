@@ -2,7 +2,7 @@ modbus:
 
   name: "Komfovent"
   type: tcp
-  host: 192.168.7.32
+  host: 192.168.5.2
   port: 502
 
   switches:
@@ -226,7 +226,6 @@ modbus:
       scan_interval: 10
     - name: "Komfovent Supply Flow volume"
       address: 905
-      count: 2            
       data_type: uint32
       input_type: holding
       precision: 0
@@ -234,7 +233,6 @@ modbus:
       scan_interval: 10
     - name: "Komfovent Extract Flow volume"
       address: 907
-      count: 2          
       data_type: uint32
       input_type: holding
       precision: 0
@@ -338,7 +336,6 @@ modbus:
       address: 926
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -349,7 +346,6 @@ modbus:
       address: 928
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -360,7 +356,6 @@ modbus:
       address: 930
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -371,7 +366,6 @@ modbus:
       address: 932
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -382,7 +376,6 @@ modbus:
       address: 934
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -393,7 +386,6 @@ modbus:
       address: 936
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -404,7 +396,6 @@ modbus:
       address: 938
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -415,7 +406,6 @@ modbus:
       address: 940
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -426,7 +416,6 @@ modbus:
       address: 942
       data_type: uint32
       input_type: holding
-      count: 2
       precision: 2
       scale: 0.001        
       unit_of_measurement: kWh
@@ -627,16 +616,16 @@ input_number:
 shell_command:
   #set modes for 20 minutes (the =20 part)
   komfovent_kitchen_mode: >-
-    curl 'http://192.168.7.32/' --data-raw '1=user&2=user' &&
-    curl 'http://192.168.7.32/ajax.xml' --data-raw '282=20'
+    curl 'http://192.168.5.2/' --data-raw '1=user&2=user' &&
+    curl 'http://192.168.5.2/ajax.xml' --data-raw '282=20'
 
   komfovent_fireplace_mode: >-
-    curl 'http://192.168.7.32/' --data-raw '1=user&2=user' &&
-    curl 'http://192.168.7.32/ajax.xml' --data-raw '283=20'
+    curl 'http://192.168.5.2/' --data-raw '1=user&2=user' &&
+    curl 'http://192.168.5.2/ajax.xml' --data-raw '283=20'
 
   komfovent_overide_mode: >-
-    curl 'http://192.168.7.32/' --data-raw '1=user&2=user' &&
-    curl 'http://192.168.7.32/ajax.xml' --data-raw '284=20'
+    curl 'http://192.168.5.2/' --data-raw '1=user&2=user' &&
+    curl 'http://192.168.5.2/ajax.xml' --data-raw '284=20'
 
 binary_sensor:
   - platform: template
